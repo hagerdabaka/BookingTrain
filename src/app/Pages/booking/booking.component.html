@@ -1,0 +1,47 @@
+<div class="container my-5">
+<div class="row" *ngIf="trainList.length !==0">
+    <div class="col-12">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Sr No</th> 
+                    <th>Train Name</th>
+                    <th>Train No</th>
+                    <th>Travel Date</th>
+                    <th>From Station</th>
+                    <th>To Station </th>
+                    <th>Passenger Name </th>
+                    <th>Age </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of trainList;let index= index">
+                    <td>{{index+1}}</td> 
+                    <td>{{item.trainName}}</td>
+                    <td>{{item.trainNo}}</td>
+                    <td>{{item.departureDate | date:'dd-MMM-yy'}}</td>
+                    <td>{{item.departureStationName}}</td>
+                    <td>{{item.arrivalStationName}}</td>
+                    <td>{{item.passengerName}}</td>
+                    <td>{{item.age}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<ng-container *ngIf="trainList.length ==0">
+    <div class="container text-center">
+      <div class="row"> 
+    <div class=" card align-items-center my-5" style="border: none;">
+      <img class="" src="https://static.vecteezy.com/system/resources/thumbnails/005/919/287/small/ticket-pass-event-voucher-solid-icon-illustration-logo-template-suitable-for-many-purposes-free-vector.jpg" height="100" width="100" alt="">
+      <h2 class="">Your 
+        bookings is empty!</h2>
+      <p class="">Browse our  trains and discover our best deals!</p>
+      <button  class="btn check"routerLink="/trains"> Check trains</button>
+    </div>
+      </div>
+    </div>
+  </ng-container> 
+  
+  </div>

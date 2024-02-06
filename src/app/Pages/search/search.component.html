@@ -1,0 +1,126 @@
+<div class="container-fluid bgPic p-4 py-3 ">
+    <div class="row">
+        <div class="col-lg-3 px-4 my-1">
+            <select class="form-select" [(ngModel)]="searchObj.fromStationId" label="Select From Station" >
+                <option value="Select From Station" >Select From Station</option>
+                <option *ngFor="let station of stationList" [value]="station.stationID">{{station.stationName}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3 px-4 my-1">
+            <select class="form-select" [(ngModel)]="searchObj.toStationId">
+                <option value=""> Select To Station </option>
+                <option *ngFor="let station of stationList" [value]="station.stationID">{{station.stationName}}</option>
+            </select>
+            
+        </div>
+        <div class="col-lg-2 px-2 my-1">
+            <input type="text" [(ngModel)]="searchObj.dateOfTravel" class="form-control" placeholder="Enter the date" />
+        </div>
+        <div class="col-lg-2 text-end my-1">
+            <button type="button-search" class="btn btn-search btn-sm px-3" (click)="getAllTrains()"><i class="fa-solid fa-magnifying-glass"></i>  Search</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-2">
+    <p style="box-shadow: rgba(0, 0, 0, 0.349) 1px 1.95px 2.6px 2px;
+    padding: 5px;margin-top: 5px;"><strong>{{trainsList.length}}</strong> Result Found For
+        <strong>Pune</strong>
+        to <strong>Nagpur</strong> on 12-12-2023</p>
+    <div class="row">
+        <div class="col-6 mt-2"  *ngFor="let train of trainsList">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    {{train.trainName}}
+                </div>
+                <div class="card-body">
+                    <div class="row pb-2">
+                        <div class="col-5">
+                            {{train.departureTime}} | {{train.departureStationName}} | {{train.departureDate|date:'dd-MMM-yy'}}
+                        </div>
+                        <div class="col-2">
+                            15:05 hrs
+                        </div>
+                        <div class="col-5 text-end">
+                           {{train.arrivalTime}} | {{train.arrivalStationName}} |{{train.departureDate |date:'dd-MMM-yy'}}
+                        </div>
+                    </div>
+                    <button *ngIf="train.bookedSeats !== train.totalSeats" (click)="openBooking(train.trainId)" class="btn btn-success btn-sm"  data-bs-toggle="modal" data-bs-target="#myModal">Book
+                        Now</button>
+                   <button *ngIf="train.bookedSeats == train.totalSeats" class="btn btn-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#myModal">All Booked
+                             </button>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+
+<div class="modal" id="bookmodel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Book Ticket</h5>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-8 text-end">
+                        Train: Pune Express
+                    </div>
+                    <div class="col-lg-4 text-end">
+                        Time:14.30
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-6 mt-2">
+                        <label for="">Passenger Name</label>
+                        <input type="text" [(ngModel)]="bookingPassengers.passengerName" class="form-control">
+                    </div>
+                    <div class="col-3">
+                        <label for="">Age</label>
+                        <input type="text"  [(ngModel)]="bookingPassengers.age" class="form-control">
+                    </div>
+                    <div class="col-3  text-end pt-4">
+                        <button class="btn btn-sm btn-primary" (click)="AddPassenger()">Add</button>
+                    </div>
+                </div>
+                <div class="row pt-1">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sr </th>
+                                    <th>Passenger Name</th>
+                                    <th>Age</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let paswenger of bokingObj.TrainAppBookingPassengers;let sr=index">
+                                    <td>{{sr+1}}</td>
+                                    <td>{{paswenger.passengerName}}</td>
+                                    <td>{{paswenger.age}}</td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm" (click)="onRemove(sr)">Remove</button>
+                                    </td>
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"   (click)="closeBooking()">Close</button>
+                <button type="button" class="btn btn-success btn-sm"  (click)="BookTicket()">Book
+                    Ticket</button>
+            </div>
+
+        </div>
+    </div>
+</div>

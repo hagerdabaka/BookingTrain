@@ -1,0 +1,131 @@
+<nav class="navbar navbar-expand-lg  px-5 fixed-top">
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/railway-station.png">
+        <span class="logoName"> Book<span class="logo2">Your</span>Train</span>
+    </a>
+    <a routerLink="search/:fromStationId/:toStationId/:dateOfTravel" class="justify-content-center">
+        <input class="search__input" type="search" placeholder="🔍 Search ">
+    </a>
+
+    <button class="navbar-toggler " type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        <span class="fa-solid fa-bars-staggered"></span>
+     </button>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse  justify-content-end  bg ">
+        <ul class="navbar-nav "  >
+
+            <li class="nav-item ">
+                <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link"  routerLink="/trains">Trains</a>
+            </li>
+
+            <li class="nav-item" *ngIf="!loggedUserData">
+                <a (click)="openLogin()" class="nav-link fw-semibold "  ngbDropdownItem>Login</a>
+            </li>
+            <li class="nav-item" *ngIf="!loggedUserData">
+                <a (click)="openRegister()" class="nav-link  fw-semibold "  ngbDropdownItem>Register</a>
+            </li>
+            <li class="nav-item" *ngIf="loggedUserData">
+                <a routerLink="/bookings" class="nav-link fw-semibold ">My Bookings</a>
+            </li>
+            <li class="nav-item" *ngIf="loggedUserData">
+                <a routerLink="/bookings" class="nav-link fw-semibold "> 
+                    <i class="fa-regular fa-user" style="font-size: 11px;"></i>
+                {{loggedUserData.firstName}} </a>
+     
+            </li>
+            <li class="nav-item" *ngIf="loggedUserData">
+                <a (click)="logoff()" class="nav-link fw-semibold "> <i
+                        class="fa-solid fa-arrow-right-from-bracket mx-1"></i></a>
+            </li>
+
+        </ul>
+    </div>
+</nav> 
+
+
+<!--  Modal Register -->
+
+<div class="modal" id="registerModel">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Register</h4>
+            <button type="button" class="btn-close" (click)="closeRegister()" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-6 form__group field">
+                    <input type="text" class="form__field  " required [(ngModel)]="registerObj.firstName" />
+                    <label for="name" class="form__label"> <i class="fa-solid fa-user  mx-1"></i> First Name</label>
+                </div>
+                <div class="col-6 form__group field">
+                    <input type="text" class="form__field " required [(ngModel)]="registerObj.lastName" />
+                    <label for="name" class="form__label"> <i class="fa-solid fa-user-plus mx-1"></i>Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 form__group field">
+                    <input type="text" class="form__field " required [(ngModel)]="registerObj.email" />
+                    <label for="name" class="form__label"> <i class="fa-solid fa-envelope  mx-1"></i> Email</label>
+                </div>
+                <div class="col-6 form__group field">
+                    <input type="text" class="form__field " required [(ngModel)]="registerObj.phone" />
+                    <label for="name" class="form__label"><i class="fa-solid fa-phone  mx-1"></i> Phone</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-6 form__group field">
+                    <input type="password" class="form__field " required [(ngModel)]="registerObj.password"
+                        placeholder="First Name " />
+                    <label for="name" class="form__label"> <i class="fa-solid fa-user-lock  mx-1"></i> Password</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn button fw-bold" (click)="onRegister()">Register</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<!--  Modal login -->
+
+<div class="modal" id="loginModel">
+<div class="modal-dialog">
+    <div class="modal-content login">
+        <div class="modal-header ">
+            <h4 class="modal-title">Login</h4>
+            <button type="button" class="btn-close" (click)="closeLogin()" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-3">
+
+            <div class="row">
+                <div class="col-12 form__group field">
+                    <input type="text" class="form__field " required [(ngModel)]="registerObj.email" />
+                    <label for="name" class="form__label"> <i class="fa-solid fa-envelope  mx-1"></i> Email</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-12 form__group field">
+                    <input type="password" class="form__field " required [(ngModel)]="registerObj.password" />
+                    <label for="name" class="form__label"> <i class="fa-solid fa-user-lock  mx-1"></i> Password</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn button fw-bold" (click)="onLogin()">Login</button>
+            <button type="button" class="btn btn-danger" (click)="closeLogin()">Close</button>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Berkshire+Swash&family=Poppins:wght@300;400;500;600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+// ******** Modal *********
+.modal {
+  background-color: rgba(41, 41, 41, 0.76) !important;
+}
+.modal-body {
+  $primary: #11998e;
+  $secondary: #38ef7d;
+  $white: #fff;
+  $gray: #9b9b9b;
+  .form__group {
+    position: relative;
+    padding: 10px 10px;
+    margin-top: 10px;
+  }
+
+  .form__field {
+    font-family: inherit;
+    width: 80%;
+    border: 0;
+    border-bottom: 2px solid $gray;
+    outline: 0;
+    font-size: 13px;
+    color: grey;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ .form__label {
+      font-size: 15px;
+      cursor: text;
+      top: 20px;
+    }
+  }
+
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 13px;
+    color: $gray;
+  }
+
+  .form__field:focus {
+    ~ .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 13px;
+      color: $primary;
+      font-weight: 700;
+    }
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $primary, $secondary);
+    border-image-slice: 1;
+  }
+  /* reset input */
+  .form__field {
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+  }
+
+  .button {
+    font-size: 20px;
+    color: white;
+    background-color: #2af598;
+    background-image: linear-gradient(90deg, #2af598 0%, #08aeea 100%);
+  }
+}
+
+// ******** Navbar *********
+
+.nav-item a {
+  color: white !important;
+  text-decoration: none;
+  text-align: center;
+}
+nav {
+  font-family: "Roboto Mono", monospace;
+  font-size: 14px;
+  height: 45px !important;
+  background-color: rgba(41, 41, 41, 0.904) !important;
+
+  a img {
+    width: 28px;
+  }
+  .logoName {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 20px;
+    color: rgb(240, 240, 240) !important;
+
+    .logo2 {
+      font-weight: 50;
+      color: rgb(136, 135, 135) !important;
+    }
+  }
+  .btn {
+    background-color: inherit;
+  }
+
+  .navbar-toggler {
+    border: none;
+    color: inherit;
+  }
+
+  a {
+    margin-right: 20px !important;
+    font-weight: 600;
+    color: rgba(121, 119, 119, 0.932) !important;
+  }
+
+  .nav-item:visited,
+  .nav-link:focus,
+  .nav-link:active,
+  button:active,
+  button:visited,
+  button:focus {
+    background: -webkit-linear-gradient(#36fc89, #0093e9) !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: .9;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.nav-link:hover,
+button:hover ,.nav-link:focus {
+  background: -webkit-linear-gradient(#36fc89, #0093e9) !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: bold;
+  font-size: 15px;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+// Responsive Screen
+@media only screen and (max-width: 600px) {
+  nav {
+    padding-top: 0px !important ;
+    font-size: 12px;
+    height: 40px !important;
+    color: rgba(224, 224, 224, 0.932) !important;
+    padding: 0% 8% ;
+    background-color: rgba(41, 41, 41, 0.904) !important;
+    .bg{
+      background-color: rgb(41, 41, 41) !important;
+    }
+    a img {
+      width: 22px;
+    }
+
+    .logoName {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 20px;
+      color: rgb(240, 240, 240) !important;
+
+      .logo2 {
+        font-weight: 50;
+        color: rgb(136, 135, 135) !important;
+      }
+    }
+
+    .navbar-toggler {
+      font-size: 14px !important;
+
+
+
+    }
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    .container {
+      padding: 0px 0%;
+    }
+
+    .home{
+      display: none;
+    }
+    ul li a{
+      font-size: 16px;
+    }
+    input{
+      display: none;
+    }
+  }
+}
+
+input {
+  margin-left: 100px;
+  width: 400px !important;
+  padding: 6px 8px;
+  background-color: transparent;
+  transition: transform 250ms ease-in-out;
+  font-size: 14px;
+  line-height: 12px;
+  color: #575756;
+  background-color: transparent;
+  border-radius: 50px;
+  border: 1px solid #575756;
+  transition: all 250ms ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  
+  &::placeholder {
+      color: color(#575756 a(0.8));
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+  }
+  
+}

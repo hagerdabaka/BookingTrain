@@ -1,0 +1,179 @@
+.bg {
+    background-size: cover;
+    background-position: center;
+    padding: 5% 5%;
+    border-bottom: 4px solid;
+    border-width: 4px;
+    border-image-slice: 1;
+    border-image-source :linear-gradient(90deg, #2af598 0%, #08aeea 100%);
+
+    .banner-text {
+        .title {
+            font-size: 70px;
+            font-weight: 600;
+        }
+    }
+
+    .book-form {
+        color: white;
+        background-color: rgba(51, 51, 51, 0.637);
+        padding: 5% 0%;
+        select,
+        input {
+            border-style: none !important;
+            border-radius: 0%;
+            color: gray;
+        }
+        button {
+            font-size: 20px;
+            color: white;
+            background-color: #2af598 !important;
+            background-image: linear-gradient(90deg, #2af598 0%, #08aeea 100%) !important;
+            &:hover { 
+                background-color: #2af598;
+                background-image: linear-gradient(90deg, #08aeea 0%, #2af598 100%) !important;
+                color: gray; 
+                
+            }
+        }
+    }
+}
+
+//responsive
+
+@media screen and (max-width: 700px) {
+    .bg {
+        padding: 2% 2%;
+        .banner-text {
+            .title {
+                font-size: 30px;
+                font-weight: 600;
+            }
+            margin-bottom: 5%;
+        }
+
+        .book-form {
+            padding: 3% 0%;
+            select,
+            input {
+                width: 100%;
+            }
+            button {
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+.card {
+    color: black;
+    font-weight: 600;
+    font-size: 14px;
+    border: none !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 20rem;
+    margin: 5% 5% !important;
+    .img-fluid {
+        height: 17rem !important;
+    }
+    .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: red;
+    }
+    .card-body {
+        border: none !important;
+    }
+}
+
+//responsive
+@media screen and (max-width: 700px ) and (min-width: 405px) {
+    .card {
+        width: 365px;
+        margin-bottom: 2% !important;
+        .img-fluid {
+            height: 15rem !important;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}
+
+@media screen and (max-width: 405px) {
+    .card {
+        width: 310px;
+        margin-bottom: 2% !important;
+    }
+}
+
+.section-title{
+    width: fit-content;
+    font-size: 30px;
+     font-weight: 500;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+     padding-bottom: 1%;
+     border-bottom: 3px solid;
+
+     border-image-slice: 1;
+     border-width: 3px;
+     border-image-source :linear-gradient(90deg, #2af598 0%, #08aeea 100%);
+}
+
+@media screen and (max-width:600px) {
+    .section-title {
+        font-size: 20px;
+    }
+}
+
+// contact
+
+
+.feedback-input {
+    color:white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight:500;
+    font-size: 15px;
+    border-radius:20px;
+    background-color: transparent;
+    border:1px solid ;
+    box-shadow: rgba(0, 0, 0, 0.596)  1.95px 1.95px 2.6px 1px;
+    transition: all 0.3s;
+    padding: 8px;
+    margin-bottom: 15px;
+    width:80%;
+    box-sizing: border-box;
+    outline:0;
+  }
+  
+ 
+  
+  textarea {
+    height: 100px;
+    line-height: 150%;
+    resize:vertical;
+  }
+  
+  [type="submit"] {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 80%;
+    background-color: #2af598;
+    background-image: linear-gradient(90deg, #2af598 0%, #08aeea 100%);
+    border-radius:20px;
+    border:0;
+    cursor:pointer;
+    color:white;
+    font-size:22px;
+    padding-top:5px;
+    padding-bottom:5px;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:700;
+  }
+  [type="submit"]:hover { 
+    background-color: #2af598;
+    background-image: linear-gradient(90deg, #08aeea 0%, #2af598 100%);
+    color: gray; 
+    
+}

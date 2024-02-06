@@ -1,0 +1,65 @@
+.table-wrapper{
+}
+.table{
+    margin: 2% 2%;
+    justify-content: center;
+    border: rgb(226, 226, 226) !important;
+    box-shadow: rgba(0, 0, 0, 0.15)  2.6px 1.95px 1.95px 2.6px;
+  
+    width: 100%;
+}
+
+
+@media screen and (max-width: 600px) {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      width: fit-content;
+      font-size: 57%;
+    }
+}
+// @media screen and (max-width: 600px) {
+//     table {
+//       display: block;
+//       overflow-x: auto;
+//       white-space: nowrap;
+//     }
+  
+//     table thead,
+//     table tbody,
+//     table tr,
+//     table th,
+//     table td {
+//       display: block;
+//     }
+  
+//     table thead tr {
+//       position: absolute;
+//       top: -9999px;
+//       left: -9999px;
+//     }
+  
+//     table tr {
+//       border: 1px solid #ccc;
+//     }
+  
+//     table td {
+//       border: none;
+//       border-bottom: 1px solid #ccc;
+//       position: relative;
+//       padding-left: 50%;
+//       white-space: normal;
+//       text-align: left;
+//     }
+  
+//     table td:before {
+//       position: absolute;
+//       top: 6px;
+//       left: 6px;
+//       width: 45%;
+//       padding-right: 10px;
+//       white-space: nowrap;
+//     }
+//   }
+  

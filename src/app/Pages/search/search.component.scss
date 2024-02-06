@@ -1,0 +1,25 @@
+    .bgPic{
+    background-image: url('https://www.enr.gov.eg/Images/train-en.png');
+    background-color: rgb(15, 15, 15);
+    background-repeat:4;   
+    background-position: center;
+    padding: 5% 1% !important;
+}
+.btn-search{
+    background-color: #2af598;
+    background-image: linear-gradient(90deg, #2af598 0%, #08aeea 100%);
+    font-size: 16px;
+    padding: 2% 1%;
+}
+select,input {
+            border-style: none !important;
+            border-radius: 0%;
+            color: gray;
+        }
+        .button-search {
+            font-size: 20px;
+            color: white;
+
+            background-color: #2af598;
+            background-image: linear-gradient(90deg, #2af598 0%, #08aeea 100%);
+        }
